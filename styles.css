@@ -636,116 +636,79 @@ body {
   }
   
   /* Mobile Screens (Up to 768px) */
-  @media screen and (max-width: 768px) {
-    /* Sidebar */
-    .sidebar {
-      width: 200px;
-      left: -200px;
+  @media (max-width: 1024px) {
+    h1 {
+        font-size: 1.75rem;
     }
-  
-    .menu-btn {
-      top: 15px;
-      left: 15px;
-      font-size: 1rem;
+
+    h2 {
+        font-size: 1.5rem;
     }
-  
-    .main-content {
-      margin-left: 0;
-      width: 100%;
+
+    h3 {
+        font-size: 1.25rem;
     }
-  
-    /* Profile Section */
-    .profile-header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+
+    h4 {
+        font-size: 1rem;
     }
-  
-    .profile-picture-wrapper {
-      margin: 0 auto 15px;
+
+    p {
+        font-size: 0.9rem;
     }
-  
-    .profile-info h1 {
-      font-size: 1.2rem;
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
     }
-  
-    /* Expenses Section */
-    .expenses-container {
-      width: 90%;
-      max-width: 100%;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
     }
-  
-    .expense-item {
-      flex-direction: column;
-      align-items: flex-start;
+
+    h2 {
+        font-size: 1.25rem;
     }
-  
-    .expense-item span {
-      margin-bottom: 10px;
+
+    h3 {
+        font-size: 1rem;
     }
-  }
-  
-  /* Tablets (768px - 1024px) */
-  @media screen and (min-width: 769px) and (max-width: 1024px) {
-    /* Sidebar */
-    .sidebar {
-      width: 220px;
+
+    h4, h5, h6 {
+        font-size: 0.875rem;
     }
-  
-    .main-content {
-      margin-left: 220px;
-      width: calc(100% - 220px);
+
+    p {
+        font-size: 0.875rem;
     }
-  
-    /* Profile Section */
-    .profile-header {
-      flex-direction: row;
-      align-items: center;
+
+    button {
+        font-size: 0.8rem;
+        padding: 6px 12px;
     }
-  
-    .profile-picture-wrapper {
-      width: 100px;
-      height: 100px;
+
+    .flex-item, .grid {
+        flex: 1 1 100%;
     }
-  
-    .profile-info h1 {
-      font-size: 1.5rem;
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.25rem;
     }
-  
-    /* Expenses Section */
-    .expenses-container {
-      max-width: 90%;
+
+    h2, h3 {
+        font-size: 1rem;
     }
-  }
-  
-  /* Desktops and Larger Screens (Above 1024px) */
-  @media screen and (min-width: 1025px) {
-    /* Sidebar */
-    .sidebar {
-      width: 250px;
+
+    h4, h5, h6, p {
+        font-size: 0.75rem;
     }
-  
-    .main-content {
-      margin-left: 250px;
-      width: calc(100% - 250px);
+
+    button {
+        font-size: 0.7rem;
+        padding: 5px 10px;
     }
-  
-    /* Profile Section */
-    .profile-header {
-      flex-direction: row;
-    }
-  
-    .profile-picture-wrapper {
-      width: 120px;
-      height: 120px;
-    }
-  
-    .profile-info h1 {
-      font-size: 2rem;
-    }
-  
-    /* Expenses Section */
-    .expenses-container {
-      max-width: 700px;
-    }
-  }
+}
