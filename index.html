@@ -9,7 +9,11 @@
 <body>
   <div class="sidebar" id="sidebar">
     <div class="sidebar-content">
-      <h2>WebSite Name</h2>
+      <div class="sidebar-logo">
+        <img src="C:/Users/Pranav_/Desktop/Study!/Projects/Splitmate/SplitMate/Updated Scripts/New Project 31 [DF9E241].png"   
+             alt="Splitmate Logo"> <!-- Change Directory for logo -->
+      </div>
+      
       <ul>
         <li><a href="javascript:void(0);" onclick="showPage('profile')">Profile</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('expenses')">Expenses</a></li>
@@ -28,7 +32,8 @@
     </header>
 
     <!-- Profile Page -->
-    <div id="profile" class="page">
+    <div id="profile" class="page" style="display: none;">
+      <div class="profile-container">
         <div class="profile-header">
           <div class="profile-picture-wrapper">
             <img id="profile-picture" src="default-profile.png" alt="Profile Picture">
@@ -42,7 +47,7 @@
             <p id="profile-email-display">johndoe@example.com</p>
           </div>
         </div>
-      
+    
         <div class="profile-edit-section">
           <div class="form-group">
             <label for="name-input">Name:</label>
@@ -57,8 +62,10 @@
             <input type="text" id="phone-input" placeholder="Enter your phone number">
           </div>
           <button class="save-button" onclick="saveProfile()">Save Changes</button>
-        </div>                    
+        </div>
+      </div>
     </div>
+    
 
     <!-- Additional pages -->
     <div id="expenses" class="page" style="display: none;">
@@ -72,46 +79,90 @@
           </button>
         </div>
         <div class="expense-list" id="expense-list">
-          <!-- Expense items will be dynamically added here -->
+          <!-- Existing expenses dynamically rendered here -->
           <div class="empty-message" id="empty-message">No expenses added yet. Start by adding an expense!</div>
         </div>
+        
+<!-- Added Expenses Section -->
+<!-- Updated Added Expenses Section -->
+<div id="added-expenses-section" style="display: none;">
+  <h3>Selected Expenses</h3>
+  <div id="added-expenses-list" class="added-expenses-list"></div>
+  <div id="selected-expenses-total" class="selected-expenses-total"></div>
+  <div class="added-expenses-actions">
+    <button id="split-added-expenses-btn">Split Selected Expenses</button>
+    <button id="clear-selection-btn">Clear Selection</button>
+  </div>
+</div>
+
+
+
+        
       </div>
     </div>     
 
     <!-- Split Expense Code -->
-    <div id="splitexpenses" class="page" style="display: none;">
-      <div class="container">
-        <header>
-          <h1>Expense Splitter💸</h1>
-        </header>
-        <p>Divide expenses seamlessly with your group!</p>
-        <main>
-          <form id="friend-form">
-            <div class="input-group">
-              <label for="friend-name">Friend's Name:</label>
-              <input type="text" id="friend-name" placeholder="Enter friend's name" required>
-            </div>
-            <div class="input-group">
-              <label for="friend-info">Email or Phone:</label>
-              <input type="text" id="friend-info" placeholder="Enter email or phone number" required>
-            </div>
-            <button type="button" id="add-friend-button">Add Friend</button>
-          </form>
-          <ul id="friend-list" class="hidden">
-            <h2>👥 Friends List</h2>
-          </ul>
-          <form id="expense-form">
-            <div class="input-group">
-              <label for="total-amount">Total Amount:</label>
-              <input type="number" id="total-amount" placeholder="Enter total expense" required>
-            </div>
-            <button type="button" id="split-button">Split Expense</button>
-          </form>
-          <div id="result" class="hidden">
-            <h2>💰 Split Details</h2>
-            <p>Each person owes: <span id="amount-per-person"></span></p>
+    <div id="splitexpenses" class="page split-expenses-container" style="display: none;">
+      <div class="split-expenses-wrapper">
+        <h1>Expense Splitter 💸</h1>
+        
+        <!-- Split Method Selector -->
+        <div class="split-method-selector">
+          <h3>Choose Split Method</h3>
+          <div class="method-options">
+            <label class="method-radio">
+              <input type="radio" name="splitMethod" value="standard" checked>
+              <span>Standard Split</span>
+            </label>
+            <label class="method-radio">
+              <input type="radio" name="splitMethod" value="budget-based">
+              <span>Budget-Based Split</span>
+            </label>
           </div>
-        </main>
+        </div>
+        
+        <div class="split-content">
+          <div class="split-columns">
+            <!-- Left Column: Friends Detail -->
+            <div class="friends-detail">
+              <h3>➕ Add Friends</h3>
+              <div class="input-group">
+                <label for="friend-name">Friend's Name</label>
+                <input type="text" id="friend-name" placeholder="Enter friend's name">
+              </div>
+              <div class="input-group">
+                <label for="friend-info">Contact Info</label>
+                <input type="text" id="friend-info" placeholder="Email or Phone">
+              </div>
+              <div class="input-group budget-input" style="display: none;">
+                <label for="friend-budget">Budget</label>
+                <input type="number" id="friend-budget" placeholder="Enter budget">
+              </div>
+              <button id="add-friend-button">Add Friend</button>
+            </div>
+            
+            <!-- Right Column: Friends List -->
+            <div class="friends-list-container">
+              <h3>👥 Friends List</h3>
+              <ul id="friend-list" class="friend-list"></ul>
+            </div>
+          </div>
+          
+          <!-- Total Amount Input -->
+          <div class="total-amount-section">
+            <div class="input-group">
+              <label for="total-amount">Total Amount</label>
+              <input type="number" id="total-amount" placeholder="Enter total amount">
+            </div>
+            <button id="split-button">Split Expense</button>
+          </div>
+        </div>
+        
+        <!-- Split Details Section -->
+        <div id="result" class="split-details hidden">
+          <h3>💰 Split Details</h3>
+          <div id="split-breakdown"></div>
+        </div>
       </div>
     </div>
 
@@ -168,11 +219,54 @@
 
 
     <div id="settings" class="page" style="display: none;">
-      <h2>Settings Page</h2>
-      <p>Content for the settings page will go here.</p>
+      <h1 style="text-align: center;">⚙️ Settings</h1>
+    
+      <!-- User & App Preferences -->
+      <div class="settings-container">
+        <h2>User & App Preferences</h2>
+    
+        <!-- Change Theme -->
+        <div class="setting-item">
+          <label for="theme-select">Change Theme:</label>
+          <select id="theme-select">
+            <option value="light">Light Mode</option>
+            <option value="dark">Dark Mode</option>
+          </select>
+        </div>
+    
+        <!-- Language Selection -->
+        <div class="setting-item">
+          <label for="language-select">Language:</label>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="gu">Gujrati</option>
+            <option value="hi">Hindi</option>
+            <!-- Add more languages as needed -->
+          </select>
+        </div>
+    
+        <!-- Default Split Method -->
+        <div class="setting-item">
+          <label for="split-method-select">Default Split Method:</label>
+          <select id="split-method-select">
+            <option value="standard">Standard Split</option>
+            <option value="budget-based">Budget-Based Split</option>
+          </select>
+        </div>
+      </div>
+    
+      <!-- About Section -->
+      <div class="settings-container">
+        <h2>About</h2>
+        <p>
+          Welcome to the Expense Tracker App, your ultimate tool for simplifying expense management and cost sharing. 
+          This app helps you manage your expenses, split bills among friends, and keep everything organized effortlessly. 
+          Whether you're planning a trip, splitting rent, or just going out with friends, we've got you covered!
+        </p>
+      </div>
     </div>
-
-
+    
+    
     <div id="help" class="page" style="display: none;">
       <h2>Help Page</h2>
       <p>Content for the help page will go here.</p>
