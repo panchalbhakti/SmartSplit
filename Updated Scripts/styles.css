@@ -793,6 +793,15 @@ body {
   gap: 1.5rem;
 }
 
+#splitexpenses h1,
+#settings h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
 .split-method-selector {
   text-align: center;
   margin-bottom: 1rem;
