@@ -1,4 +1,3 @@
-
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   const mainContent = document.querySelector('.main-content');
@@ -434,6 +433,7 @@ if (!clearResultButton) {
 }
 
 
+
   
   // Modify split button event listener
   document.getElementById('split-button').addEventListener('click', () => {
@@ -560,3 +560,4 @@ splitMethodSelect.addEventListener('change', () => {
   localStorage.setItem('defaultSplitMethod', selectedMethod);
   alert(`Default split method changed to: ${selectedMethod === 'standard' ? 'Standard Split' : 'Budget-Based Split'}`);
 });
+
