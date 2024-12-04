@@ -1,1 +1,1 @@
-# SplitMate
+# SmartSplit
