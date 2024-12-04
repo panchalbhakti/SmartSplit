@@ -8,10 +8,7 @@ body {
     font-family: 'Jost', sans-serif;
     background-image: url('../Images/background.jpg');
     max-width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    background-size: cover;
 }
 
 .main{
