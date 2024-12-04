@@ -564,20 +564,20 @@ splitMethodSelect.addEventListener('change', () => {
 //Javascript for the Payment Gateway
 //Function to format card number with spaces
  function formatCardNumber(input) {
-            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            let value = input.value.replace(/\D/g, ''); 
             if (value.length <= 16) {
-                value = value.replace(/(\d{4})(?=\d)/g, '$1 '); // Insert spaces after every 4 digits
+                value = value.replace(/(\d{4})(?=\d)/g, '$1 '); 
             }
             input.value = value;
         }
 // Function to format expiry month
  function formatExpiryMonth(input) {
-            let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
+            let value = input.value.replace(/\D/g, ''); 
             if (value.length > 4) {
-                value = value.slice(0, 4); // Limit input to 4 digits
+                value = value.slice(0, 4); 
             }
             if (value.length > 2) {
-                value = value.replace(/(\d{2})(\d{1,2})/, '$1 / $2'); // Insert " / " after the first 2 digits
+                value = value.replace(/(\d{2})(\d{1,2})/, '$1 / $2'); 
             }
             input.value = value;
         }
