@@ -1,4 +1,5 @@
 <?php
+
 // Database credentials
 $host = "sql201.infinityfree.com"; // Change if hosted remotely
 $dbname = "if0_37800644_SmartSplit"; 
