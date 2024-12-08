@@ -608,7 +608,7 @@ header h1 {
 
 #total-amount {
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   background-color: #dce5ea;
 }
@@ -994,4 +994,3 @@ select {
       padding: 8px 16px;
   }
 }
-
