@@ -606,6 +606,13 @@ header h1 {
   gap: 1.5rem;
 }
 
+#total-amount {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+  background-color: #dce5ea;
+}
+
 #add-friend-button,
 #split-button {
   padding: 0.75rem 1.5rem;
