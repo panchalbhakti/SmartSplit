@@ -10,7 +10,6 @@ body {
 }
 
 
-
 /* Sidebar Styling */
 .sidebar {
   position: fixed;
@@ -242,7 +241,6 @@ button:hover {
 
 
 
-
 /* Profile Page */
 .profile-container {
   display: flex;
@@ -362,9 +360,6 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-
-
-
 
 
 /* Expenses Page */
@@ -730,6 +725,7 @@ header h1 {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 #friend-list button:hover {
   background: #d43838;
   transform: translateY(-2px);
