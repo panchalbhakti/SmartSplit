@@ -450,65 +450,38 @@ if (!clearResultButton) {
     result.classList.remove('hidden');
     splitBreakdown.innerHTML = ''; // Clear previous results
   
-    // Common calculation for both methods
     const amountPerPerson = (totalAmount / friends.length).toFixed(2);
   
-    if (splitMethod === 'standard') {
-      // Standard Split Logic
-      const commonAmountSection = document.createElement('div');
-      commonAmountSection.innerHTML = `<strong>Each Person Owes: ₹${amountPerPerson}</strong>`;
-      splitBreakdown.appendChild(commonAmountSection);
-    } else if (splitMethod === 'budget-based') {
-      // Budget-Based Split Logic
-      let negativeBalances = [];
-      friends.forEach((friend) => {
-        const breakdownItem = document.createElement('div');
-        const remainingBudget = friend.budget
-          ? (friend.budget - parseFloat(amountPerPerson)).toFixed(2)
-          : null;
+    friends.forEach((friend, index) => {
+      const breakdownItem = document.createElement('div');
+      breakdownItem.classList.add('split-breakdown-item');
   
-        breakdownItem.classList.add('split-breakdown-item');
-        breakdownItem.innerHTML = `
-          <div>
-            <strong>${friend.name}</strong> <br>
-            ${friend.budget ? `<small>Initial Budget: ₹${friend.budget.toFixed(2)}</small>` : ''}
-          </div>
-          <div>
-            <span>Owes: ₹${amountPerPerson}</span> <br>
-            ${remainingBudget !== null ? `<small>Remaining Budget: ₹${remainingBudget}</small>` : ''}
-          </div>
-        `;
+      breakdownItem.innerHTML = `
+        <div>
+          <strong>${friend.name}</strong><br>
+          ${splitMethod === 'budget-based' && friend.budget !== null 
+            ? `<small>Budget: ₹${friend.budget.toFixed(2)}</small><br>` 
+            : ''}
+          <small>Owes: ₹${amountPerPerson}</small>
+        </div>
+        <div class="friend-actions">
+          <button onclick="sendWhatsAppMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">WhatsApp</button>
+          <button onclick="sendSMSMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">SMS</button>
+          <button onclick="markAsPaid(${index})">Paid</button>
+        </div>
+      `;
+      splitBreakdown.appendChild(breakdownItem);
+    });
   
-        // Track negative balances
-        if (remainingBudget && parseFloat(remainingBudget) < 0) {
-          negativeBalances.push({
-            name: friend.name,
-            remaining: parseFloat(remainingBudget),
-          });
-        }
-  
-        splitBreakdown.appendChild(breakdownItem);
-      });
-  
-      // Common Amount Section
-      const commonAmountSection = document.createElement('div');
-      commonAmountSection.innerHTML = `<strong>Each Person Owes: ₹${amountPerPerson}</strong>`;
-      splitBreakdown.appendChild(commonAmountSection);
-  
-      // Negative Balances Section
-      if (negativeBalances.length > 0) {
-        const negativeSection = document.createElement('div');
-        negativeSection.style.marginTop = '20px';
-        negativeSection.innerHTML = '<strong>People with Negative Budgets:</strong>';
-        negativeBalances.forEach((balance) => {
-          const negativeItem = document.createElement('div');
-          negativeItem.innerHTML = `${balance.name}: ₹${balance.remaining.toFixed(2)}`;
-          negativeSection.appendChild(negativeItem);
-        });
-        splitBreakdown.appendChild(negativeSection);
-      }
-    }
+    const saveSection = document.createElement('div');
+    saveSection.classList.add('save-section');
+    saveSection.innerHTML = `
+      <input type="text" id="split-name" placeholder="Enter a name for this split" />
+      <button onclick="saveSplitResult()">Save Split</button>
+    `;
+    splitBreakdown.appendChild(saveSection);
   });
+  
   
   
   
@@ -585,3 +558,81 @@ document.querySelector('.menu-btn').addEventListener('click', function() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.classList.toggle('active');
 });
+
+function sendWhatsAppMessage(name, amount, phoneNumber) {
+  const message = `Hi ${name}, you have a pending payment of ₹${amount}. Please settle it soon.`;
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  window.open(whatsappUrl, '_blank');
+}
+
+function sendSMSMessage(name, amount, phoneNumber) {
+  const message = `Hi ${name}, you have a pending payment of ₹${amount}. Please settle it soon.`;
+  const smsUrl = `sms:${phoneNumber}?body=${encodeURIComponent(message)}`;
+  window.location.href = smsUrl;
+}
+
+function markAsPaid(friendIndex) {
+  const friendDetails = document.querySelectorAll('.split-breakdown-item')[friendIndex];
+  const paidStatus = friendDetails.querySelector('.paid-status');
+  
+  if (!paidStatus) {
+    const paidMessage = document.createElement('span');
+    paidMessage.classList.add('paid-status');
+    paidMessage.textContent = 'Paid ✅';
+    friendDetails.appendChild(paidMessage);
+  }
+}
+
+function saveSplitResult() {
+  const splitName = document.getElementById('split-name').value.trim();
+  if (!splitName) {
+    alert('Please provide a name for the split.');
+    return;
+  }
+
+  const splitBreakdown = document.getElementById('split-breakdown').innerHTML;
+  const savedSplits = JSON.parse(localStorage.getItem('savedSplits') || '[]');
+
+  savedSplits.push({ name: splitName, details: splitBreakdown });
+  localStorage.setItem('savedSplits', JSON.stringify(savedSplits));
+
+  alert('Split result saved successfully!');
+  document.getElementById('split-name').value = '';
+}
+
+// Show Saved Splits in Settings
+function showSavedSplits() {
+  const savedSplits = JSON.parse(localStorage.getItem('savedSplits') || '[]');
+  const savedSplitsList = savedSplits.map(split => `
+    <div class="saved-split">
+      <h4>${split.name}</h4>
+      <div>${split.details}</div>
+    </div>
+  `).join('');
+
+  alert(savedSplitsList || 'No saved splits available.');
+}
+
+// Show Split History in Settings
+function showSplitHistory() {
+  const splitHistory = JSON.parse(localStorage.getItem('splitHistory') || '[]');
+  const splitHistoryList = splitHistory.map((split, index) => `
+    <div class="split-history-item">
+      <h4>Split ${index + 1}</h4>
+      <div>${split}</div>
+    </div>
+  `).join('');
+
+  alert(splitHistoryList || 'No split history available.');
+}
+
+// Update Split Button Listener to Save Split History
+document.getElementById('split-button').addEventListener('click', () => {
+  const splitBreakdown = document.getElementById('split-breakdown').innerHTML;
+  const splitHistory = JSON.parse(localStorage.getItem('splitHistory') || '[]');
+  
+  splitHistory.push(splitBreakdown);
+  localStorage.setItem('splitHistory', JSON.stringify(splitHistory));
+});
+
