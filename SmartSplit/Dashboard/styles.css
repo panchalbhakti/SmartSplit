@@ -29,6 +29,7 @@ body {
 .sidebar:hover {
   background-color: #2b3b4d;
 }
+
 /*for both logo and bot*/
 #circle {
   display: flex;
@@ -50,6 +51,7 @@ body {
   max-height: 100px;
   object-fit: contain;
 }
+
 /* Bot Icon Styling */
 .bot-icon {
   display: flex;
@@ -113,7 +115,6 @@ body {
 }
 
 
-
 /* Main Content Styling */
 .main-content {
   margin-left: 250px;
@@ -138,8 +139,6 @@ header .menu-btn {
   color: #000;
   z-index: 3;
 }
-
-
 
 /* Menu Button */
 .menu-btn {
@@ -238,8 +237,6 @@ button:hover {
   transform: translateY(-3px);  
   box-shadow: 0 5px 10px #51575d;
 }
-
-
 
 /* Profile Page */
 .profile-container {
@@ -360,7 +357,6 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
-
 
 /* Expenses Page */
 .expenses-container {
@@ -605,10 +601,6 @@ button:hover {
 #clear-split-result-btn:hover {
   background-color: #c0392b;
 }
-  
-
-
-
 
 /* Split Expenses Page */
 .split-expenses-container {
@@ -769,9 +761,6 @@ header h1 {
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-
-
-
 /* Payment Page */
 .pay-container {
   margin: 0 auto;
@@ -845,8 +834,6 @@ header h1 {
 .ip-grp label {
   padding: 12px;
 }
-
-
 
 /* Setting Page */
 .settings-container {
