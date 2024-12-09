@@ -534,6 +534,7 @@ splitMethodSelect.addEventListener('change', () => {
   alert(`Default split method changed to: ${selectedMethod === 'standard' ? 'Standard Split' : 'Budget-Based Split'}`);
 });
 
+//Payment Javascript
 // Function to format card number with spaces
 function formatCardNumber(input) {
   let value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
@@ -553,6 +554,12 @@ function formatExpiryMonth(input) {
   }
   input.value = value;
 }
+
+document.getElementById("paymentForm").addEventListener("submit", function (event) {
+  event.preventDefault(); 
+  alert("Payment Successful! Thank you for using Smart Split.");
+});
+
 
 document.querySelector('.menu-btn').addEventListener('click', function() {
   const sidebar = document.querySelector('.sidebar');
