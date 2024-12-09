@@ -765,11 +765,11 @@ header h1 {
   margin-bottom: 1.5rem;
 }
 .pay-options img {
-  max-width: 100%;
+  max-width: 90%;
   height: auto;
 }
 .pay-options .option {
-  flex: 1 1 calc(50% - 10px);
+  flex: 2;
   max-width: 200px;
   text-align: center;
   background: rgba(128, 128, 128, 0.493);
