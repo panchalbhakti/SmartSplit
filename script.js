@@ -601,31 +601,60 @@ function saveSplitResult() {
   document.getElementById('split-name').value = '';
 }
 
-// Show Saved Splits in Settings
-function showSavedSplits() {
-  const savedSplits = JSON.parse(localStorage.getItem('savedSplits') || '[]');
-  const savedSplitsList = savedSplits.map(split => `
-    <div class="saved-split">
-      <h4>${split.name}</h4>
-      <div>${split.details}</div>
-    </div>
-  `).join('');
+function viewSavedSplits() {
+  const savedSplitsContainer = document.getElementById('saved-splits-container');
+  const savedSplitsList = document.getElementById('saved-splits-list');
+  savedSplitsList.innerHTML = ''; // Clear previous content
 
-  alert(savedSplitsList || 'No saved splits available.');
+  if (savedSplits.length === 0) {
+    savedSplitsList.innerHTML = '<p>No saved splits available.</p>';
+  } else {
+    savedSplits.forEach((split, index) => {
+      const splitDiv = document.createElement('div');
+      splitDiv.classList.add('split-detail-item');
+      splitDiv.innerHTML = `
+        <h3>${split.name || `Split #${index + 1}`}</h3>
+        <div>${split.details}</div>
+      `;
+      savedSplitsList.appendChild(splitDiv);
+    });
+  }
+
+  savedSplitsContainer.style.display = 'block';
 }
+
+function closeSavedSplits() {
+  document.getElementById('saved-splits-container').style.display = 'none';
+}
+
 
 // Show Split History in Settings
-function showSplitHistory() {
-  const splitHistory = JSON.parse(localStorage.getItem('splitHistory') || '[]');
-  const splitHistoryList = splitHistory.map((split, index) => `
-    <div class="split-history-item">
-      <h4>Split ${index + 1}</h4>
-      <div>${split}</div>
-    </div>
-  `).join('');
+function viewSplitHistory() {
+  const splitHistoryContainer = document.getElementById('split-history-container');
+  const splitHistoryList = document.getElementById('split-history-list');
+  splitHistoryList.innerHTML = ''; // Clear previous content
 
-  alert(splitHistoryList || 'No split history available.');
+  if (splitHistory.length === 0) {
+    splitHistoryList.innerHTML = '<p>No split history available.</p>';
+  } else {
+    splitHistory.forEach((history, index) => {
+      const historyDiv = document.createElement('div');
+      historyDiv.classList.add('split-detail-item');
+      historyDiv.innerHTML = `
+        <h3>Split #${index + 1}</h3>
+        <div>${history.details}</div>
+      `;
+      splitHistoryList.appendChild(historyDiv);
+    });
+  }
+
+  splitHistoryContainer.style.display = 'block';
 }
+
+function closeSplitHistory() {
+  document.getElementById('split-history-container').style.display = 'none';
+}
+
 
 // Update Split Button Listener to Save Split History
 document.getElementById('split-button').addEventListener('click', () => {

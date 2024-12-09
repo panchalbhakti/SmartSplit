@@ -5,7 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  background-image: url("../Images/background.jpg");
+  background-image: url("./Images/background.jpg");
   background-size: cover;
   background-position: center;
   color: #2b2b2b;
@@ -13,23 +13,37 @@ body {
   box-sizing: border-box;
 }
 
-/* Sidebar Styling */
+/* Sidebar Styles */
 .sidebar {
   position: fixed;
   top: 0;
   left: -250px;
   width: 250px;
   height: 100vh;
-  background: linear-gradient(135deg, #1d3557, #457b9d);
+  background: #1d3557; /* Solid color */
   color: #fff;
   overflow-y: auto;
-  transition: left 0.3s ease, background-color 0.3s;
+  transition: left 0.3s ease, background 0.6s ease;
   z-index: 2;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar:hover {
-  background: linear-gradient(135deg, #457b9d, #1d3557);
+  background: #1d3557; /* Same solid color on hover */
+  transition: background 0.6s ease;
+}
+
+
+.sidebar-logo img {
+  object-fit: cover;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
 }
 
 #circle {
@@ -40,7 +54,9 @@ body {
   gap: 20px;
 }
 
-.sidebar-logo,
+
+
+
 .bot-icon {
   display: flex;
   justify-content: center;
@@ -48,7 +64,6 @@ body {
   margin-bottom: 20px;
 }
 
-.sidebar-logo img,
 .bot-icon img {
   border-radius: 50%;
   border: 4px solid #fff;
@@ -112,13 +127,12 @@ body {
   font-size: 24px;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: pointer;  
   position: fixed;
   top: 15px;
   left: 15px;
   color: #fff;
   z-index: 3;
-  transition: color 0.3s ease;
 }
 
 .menu-btn:hover {
@@ -147,43 +161,48 @@ header {
   color: #457b9d;
 }
 
-/* Input Fields */
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+/* Updated Input Styles */
+input[type="text"], input[type="email"], input[type="password"], input[type="number"] {
   width: 650px;
   padding: 12px;
   margin: 10px 0;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  transition: box-shadow 0.3s ease, border 0.3s ease, transform 0.3s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-  border: 1px solid #457b9d;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, input[type="number"]:hover {
+  transform: scale(1.05);
 }
 
-/* Buttons */
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, input[type="number"]:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+}
+
+
+/* Button Styles */
 button {
-  background: #1d3557;
-  color: white;
+  padding: 12px 20px;
+  margin: 10px 0;
   border: none;
   border-radius: 8px;
-  padding: 12px 20px;
+  background-color: #3498db;
+  color: #fff;
   font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 button:hover {
-  background: #457b9d;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  background-color: #2980b9;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
 }
 
 /* Profile Page */
@@ -501,7 +520,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #6dd5ed, #2193b0);
-  padding: 20px;
+  padding: 0px;
   border-radius: 20px;
   max-width: 900px;
   margin: 20px auto;
@@ -590,13 +609,37 @@ header h1 {
   gap: 1.5rem;
 }
 
-.friends-detail,
+.friends-detail {
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e8f1f8, #d2e4f0);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.friends-detail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.friends-detail h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 .friends-list-container {
   flex: 1;
-  background-color: #ffffff;
+  background: linear-gradient(135deg, #ffffff, #f4f9fc);
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.friends-list-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .total-amount-section {
@@ -606,11 +649,23 @@ header h1 {
   gap: 1.5rem;
 }
 
+/* Total Amount Input */
 #total-amount {
-  padding: 0.5rem;
-  border-radius: 10px;
+  padding: 0.8rem;
+  border-radius: 12px;
   border: none;
   background-color: #dce5ea;
+  width: 680px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#total-amount:hover {
+  transform: scale(1.05);
+}
+
+#total-amount:focus {
+  border: 2px solid #3498db;
+  box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
 }
 
 #add-friend-button,
@@ -860,6 +915,62 @@ select {
   background-color: rgba(0,0,0,0.05);
 }
 
+.saved-splits-container,
+.split-history-container {
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: #ffffff;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+.saved-splits-container h2,
+.split-history-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.split-detail-item {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Bot Icon Styling */
+.bot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.bot-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border: none;
+}
+
+.bot-icon:hover {
+  transform: scale(1.1);
+  background-color: #2980b9;
+}
 
 
 /* Mobile Screens (Up to 1024px) */

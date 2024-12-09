@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Tracker</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="../Images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="./favicon.png">
 </head>
 <body>
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
     <div class="sidebar-content">
-      <div id="circle">
+      <div id="sidebar-logo img">
         <div class="sidebar-logo">
-          <img src="../Images/SmartSpli_Logo.png" alt="Splitmate Logo">
+          <img src="./Images/SmartSpli_Logo.png" alt="Splitmate Logo">
         </div>
         <div class="bot-icon" id="bot-icon">
-          <a href="../ChatBot/bot.html" target="_blank" alt="Botpage">
-            <img src="../Images/bot.jpg" alt="Bot Icon" />
+          <a href="bot.html" target="_blank" alt="Botpage">
+            <img src="./Images/bot.jpg" alt="Bot Icon" />
           </a>
         </div>  
       </div>
@@ -27,7 +27,7 @@
         <li><a href="javascript:void(0);" onclick="showPage('splitexpenses')">Split Expenses</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('payment')">Payment</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('settings')">Settings</a></li>
-        <a href="../Home/home.html" alt="Homepage">
+        <a href="./home.html" alt="Homepage">
           <button id="logout-btn" onclick="showPage('logout')">Log Out</button>
         </a>
       </ul>
@@ -45,7 +45,7 @@
       <div class="profile-container">
         <div class="profile-header">
           <div class="profile-picture-wrapper">
-            <img id="profile-picture" src="../Images/icon.png" alt="Profile Picture">
+            <img id="profile-picture" src="./Images/icon.png" alt="Profile Picture">
             <input type="file" id="profile-picture-input" accept="image/*" onchange="updateProfilePicture()">
             <div class="edit-icon">
               <i class="fa fa-camera"></i>
@@ -222,13 +222,27 @@
       <div class="settings-container">
         <h2>Manage Splits</h2>
         <button id="view-saved-splits-btn" onclick="showSavedSplits()">View Saved Splits</button>
+        <!-- Placeholder for Saved Splits -->
+<div id="saved-splits-container" class="saved-splits-container" style="display: none;">
+  <h2>Saved Splits</h2>
+  <div id="saved-splits-list"></div>
+  <button id="close-saved-splits-btn" onclick="closeSavedSplits()">Close</button>
+</div>
+
         <button id="view-split-history-btn" onclick="showSplitHistory()">View Split History</button>
+
+        <!-- Placeholder for Split History -->
+<div id="split-history-container" class="split-history-container" style="display: none;">
+  <h2>Split History</h2>
+  <div id="split-history-list"></div>
+  <button id="close-split-history-btn" onclick="closeSplitHistory()">Close</button>
+</div>
       </div>
     
       <!-- About Section -->
       <div class="settings-container">
         <h2>About</h2>
-        <p>
+        <p id="about-text">
           Welcome to the Expense Tracker App, your ultimate tool for simplifying expense management and cost sharing. 
           This app helps you manage your expenses, split bills among friends, and keep everything organized effortlessly. 
           Whether you're planning a trip, splitting rent, or just going out with friends, we've got you covered!
