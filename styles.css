@@ -5,7 +5,7 @@ body {
   font-family: 'Poppins', sans-serif;
   display: flex;
   flex-direction: column;
-  background-image: url("./Images/background.jpg");
+  background-image: url("Images/background.jpg");
   background-size: cover;
   background-position: center;
   color: #2b2b2b;
