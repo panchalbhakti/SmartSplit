@@ -34,7 +34,8 @@ if ($result->num_rows > 0) {
         session_start();
         $_SESSION['name'] = $name;
         echo "Login successful!";
-        header("Location: ../Dashboard/index.html"); // Redirect to home page
+        // header("Location: ../Dashboard/index.html"); // Redirect to home page
+        header("Location: index.html");
         exit;
     } else {
         echo "<script>alert('Incorrect password!'); window.history.back();</script>";
