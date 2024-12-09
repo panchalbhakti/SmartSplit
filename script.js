@@ -467,7 +467,7 @@ if (!clearResultButton) {
         <div class="friend-actions">
           <button onclick="sendWhatsAppMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">WhatsApp</button>
           <button onclick="sendSMSMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">SMS</button>
-          <button onclick="markAsPaid(${index})">Paid</button>
+          <button onclick=" = () => window.location.href = 'http://127.0.0.1:5500/index.html';">Pay</button>
         </div>
       `;
       splitBreakdown.appendChild(breakdownItem);
