@@ -114,7 +114,7 @@
               <h3>Add Friends</h3>
               <input type="text" id="friend-name" placeholder="Friend's Name">
               <input type="text" id="friend-info" placeholder="Contact Info" maxlength="10">
-              <input type="number" id="friend-budget" placeholder="Budget (if needed)" style="display: none;">
+              <input type="number" id="friend-budget" placeholder="Budget (if applicable)" class="budget-input" style="display: none;">
               <button id="add-friend-button">Add Friend</button>
             </div>
             <div class="friends-list-container">
@@ -129,7 +129,7 @@
         </div>
         <div id="result" class="split-details hidden">
           <h3>Split Details</h3>
-          <div id="split-breakdown"></div>
+          <div id="split-breakdown"></div>          
         </div>
       </div>
     </div>
@@ -189,7 +189,7 @@
         </form>
     </div>
     </div>
-
+    
     <!-- Setting Page -->
     <div id="settings" class="page" style="display: none;">
       <p id="set" style="text-align: center;">⚙️ Settings</p>
@@ -203,9 +203,8 @@
           <label for="language-select">Language:</label>
           <select id="language-select">
             <option value="en">English</option>
-            <option value="gu">Gujrati</option>
+            <option value="gu">Gujarati</option>
             <option value="hi">Hindi</option>
-            <!-- Add more languages as needed -->
           </select>
         </div>
     
@@ -219,6 +218,13 @@
         </div>
       </div>
     
+      <!-- Saved Splits and Split History -->
+      <div class="settings-container">
+        <h2>Manage Splits</h2>
+        <button id="view-saved-splits-btn" onclick="showSavedSplits()">View Saved Splits</button>
+        <button id="view-split-history-btn" onclick="showSplitHistory()">View Split History</button>
+      </div>
+    
       <!-- About Section -->
       <div class="settings-container">
         <h2>About</h2>
@@ -229,6 +235,7 @@
         </p>
       </div>
     </div>
+    
     
     
     <div id="help" class="page" style="display: none;">
