@@ -555,7 +555,7 @@ function formatExpiryMonth(input) {
   input.value = value;
 }
 
-document.getElementById("paymentForm").addEventListener("submit", function (event) {
+document.getElementById("paymentForm").addEventListener("submit", function(event) {
   event.preventDefault(); 
   alert("Payment Successful! Thank you for using Smart Split.");
 });
