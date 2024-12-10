@@ -146,6 +146,66 @@ body {
   transform: scale(1.1);
 }
 
+
+@media (max-width: 768px) {
+  /* Adjust Sidebar to act as a Top Navigation Bar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: #1d3557;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Hide the Sidebar Logo on Mobile */
+  .sidebar-logo {
+    display: none;
+  }
+
+  /* Sidebar Links in Horizontal Layout */
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .sidebar ul li {
+    margin: 0;
+  }
+
+  .sidebar ul li a {
+    font-size: 0.9rem;
+    padding: 10px;
+    text-align: center;
+    background: none;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .sidebar ul li a:hover {
+    color: #00aaff;
+  }
+
+  /* Menu Button Hidden on Mobile */
+  .menu-btn {
+    display: none;
+  }
+}
+
+
+
 /* Main Content Styling */
 .main-content {
   margin-left: 250px; /* Adjust for sidebar width */
@@ -989,7 +1049,9 @@ select {
 }
 
 
-/* Mobile Screens (Up to 1024px) */
+
+
+/* Mobile Screens (Up to 1024px)
  @media (max-width: 480px) {
   h1 {
     font-size: 1.25rem;
@@ -1120,4 +1182,4 @@ select {
       font-size: 0.9rem;
       padding: 8px 16px;
   }
-}
+} */
