@@ -555,6 +555,10 @@ function formatExpiryMonth(input) {
   input.value = value;
 }
 
+function pay(){
+      alert("Payment Successful! Thank you for using Smart Split.");
+}
+
 document.querySelector('.menu-btn').addEventListener('click', function() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.classList.toggle('active');
@@ -665,7 +669,3 @@ document.getElementById('split-button').addEventListener('click', () => {
   splitHistory.push(splitBreakdown);
   localStorage.setItem('splitHistory', JSON.stringify(splitHistory));
 });
-
-function pay(){
-      alert("Payment Successful! Thank you for using Smart Split.");
-}
