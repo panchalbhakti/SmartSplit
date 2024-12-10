@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <link rel="stylesheet" href="pay2.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: linear-gradient(140deg, rgba(64, 24, 207, 0.986), rgba(11, 135, 207, 0.5));
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .pay-container {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+            width: 100%;
+            max-width: 400px;
+            color: #333;
+            text-align: center;
+        }
+
+        .pay-container h1 {
+            color: #333;
+            font-size: 33px;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .pay-container img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .pay-container p {
+            font-size: 18px;
+            margin-bottom: 16px;
+            color: #555;
+        }
+
+        .pay-container input {
+            width: calc(100% - 32px);
+            padding: 12px;
+            margin-bottom: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .pay-container button {
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .pay-container button:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px #0056b3;
+        }
+
+        .pay-container .note {
+            font-size: 14px;
+            color: #777;
+            margin-top: 12px;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .logo-container .tag {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pay-container">
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <img src="https://raw.githubusercontent.com/panchalbhakti/SmartSplit/refs/heads/main/Images/SmartSpli_Logo.png" alt="logo" class="weblogo">
+            <h2 class="tag">Smart Split</h2>
+        </div>
+        <!-- Main Content -->
+        <h1>Scan to Pay</h1>
+        <img src="qr.jpeg" alt="UPI QR Code">
+        <p>Use any UPI app to scan the QR code and complete the payment.</p>
+        <input type="email" placeholder="Enter your email" required>
+        <input type="text" placeholder="Enter transaction ID" required>
+        <button>Submit</button>
+        <p class="note">The bill will be sent to your email once the payment is verified.</p>
+    </div>
+</body>
+
+</html>
