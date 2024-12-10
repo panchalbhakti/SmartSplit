@@ -672,10 +672,10 @@ document.getElementById('split-button').addEventListener('click', () => {
   localStorage.setItem('splitHistory', JSON.stringify(splitHistory));
 });
 
-document.getElementById("paymentForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent default form submission
-
+// document.getElementById("paymentForm").addEventListener("submit", function (event) {
+//   event.preventDefault(); // Prevent default form submission
+function pay(){
   
       // Show success alert
       alert("Payment Successful! Thank you for using Smart Split.");
-});
+}
