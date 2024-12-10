@@ -324,7 +324,7 @@ button:focus {
   box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
 }
 .add-expense-btn {
-  background-color: #28a745;
+  background-color: #3fca5f;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -339,7 +339,7 @@ button:focus {
   transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .add-expense-btn:hover {
-  background-color: #2980b9;
+  background-color: #289f44;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
