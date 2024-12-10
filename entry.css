@@ -16,7 +16,7 @@ body {
 	height: 500px;
 	overflow: hidden;
 	border-radius: 10px;
-	background: rgba(8, 32, 62, 0.9);
+	background: #08203ee6;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
 	transition: 0.5s;
