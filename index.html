@@ -24,7 +24,7 @@
       <ul>
         <li><a href="javascript:void(0);" onclick="showPage('profile')">Profile</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('expenses')">Expenses</a></li>
-        <li><a href="javascript:void(0);" onclick="showPage('chatbox')">ChatBox</a></li>
+        <li><a href="javascript:void(0);" onclick="showPage('toggleChatbox')">ChatBox</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('splitexpenses')">Split Expenses</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('payment')">Payment</a></li>
         <li><a href="javascript:void(0);" onclick="showPage('settings')">Settings</a></li>
@@ -98,24 +98,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div id="Chatbox" class="page" style="display: none;">
-      <div class="chatbox-container">
-        <div class="chat-header">
-            <h2>ChatBox 💬</h2>
-        </div>
-        <div class="chat-body">
-            <div class="messages" id="messages"></div>
-            <div class="message-input">
-                <input type="text" id="message" placeholder="Type a message...">
-                <button onclick="sendMessage()">Send</button>
-            </div>
-        </div>
-        <div class="chat-footer">
-            <button class="expense-button" onclick="redirectToExpenseSplitter()">💸 Expense Splitter</button>
-        </div>
-    </div>
     </div>
 
     <!-- Split Expenses Page -->

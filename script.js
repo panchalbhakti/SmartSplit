@@ -670,22 +670,3 @@ function pay(){
       alert("Payment Successful! Thank you for using Smart Split.");
 }
 
-
-//ChatBox Script
-function sendMessage() {
-  const messageInput = document.getElementById("message");
-  const message = messageInput.value.trim();
-  if (message) {
-      const messagesDiv = document.getElementById("messages");
-      const newMessage = document.createElement("div");
-      newMessage.className = "message self";
-      newMessage.textContent = message;
-      messagesDiv.appendChild(newMessage);
-      messageInput.value = "";
-      messagesDiv.scrollTop = messagesDiv.scrollHeight; // Scroll to the latest message
-  }
-}
-
-// function redirectToExpenseSplitter() {
-//     window.location.href = "expense-splitter.html"; // Replace with your actual expense splitter page URL
-// }
