@@ -1,6 +1,10 @@
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   const mainContent = document.querySelector('.main-content');
+
+  sidebar.classList.toggle('open');
+  mainContent.classList.toggle('sidebar-open');
+  
   const menuButton = document.querySelector('.menu-btn');
 
   if (sidebar.style.left === '0px') {
@@ -452,7 +456,7 @@ if (!clearResultButton) {
   
     const amountPerPerson = (totalAmount / friends.length).toFixed(2);
   
-    friends.forEach((friend, index) => {
+    friends.forEach((friend) => {
       const breakdownItem = document.createElement('div');
       breakdownItem.classList.add('split-breakdown-item');
   
@@ -467,21 +471,12 @@ if (!clearResultButton) {
         <div class="friend-actions">
           <button onclick="sendWhatsAppMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">WhatsApp</button>
           <button onclick="sendSMSMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">SMS</button>
-          <button>Pay</button>
+          <button onclick="openPaymentPage('${friend.name}', ${amountPerPerson})">Pay</button>
         </div>
       `;
       splitBreakdown.appendChild(breakdownItem);
     });
-  
-    const saveSection = document.createElement('div');
-    saveSection.classList.add('save-section');
-    saveSection.innerHTML = `
-      <input type="text" id="split-name" placeholder="Enter a name for this split" />
-      <button onclick="saveSplitResult()">Save Split</button>
-    `;
-    splitBreakdown.appendChild(saveSection);
   });
-  
   
   
   
@@ -577,17 +572,14 @@ function sendSMSMessage(name, amount, phoneNumber) {
   window.location.href = smsUrl;
 }
 
-function markAsPaid(friendIndex) {
-  const friendDetails = document.querySelectorAll('.split-breakdown-item')[friendIndex];
-  const paidStatus = friendDetails.querySelector('.paid-status');
-  
-  if (!paidStatus) {
-    const paidMessage = document.createElement('span');
-    paidMessage.classList.add('paid-status');
-    paidMessage.textContent = 'Paid ✅';
-    friendDetails.appendChild(paidMessage);
-  }
+function openPaymentPage(friendName, amountOwed) {
+  showPage('payment'); // Switch to the payment page
+
+  // Autofill the Payer Name and Amount fields
+  document.getElementById('name').value = friendName;
+  document.getElementById('amount').value = `₹${amountOwed}`;
 }
+
 
 function saveSplitResult() {
   const splitName = document.getElementById('split-name').value.trim();
