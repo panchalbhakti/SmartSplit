@@ -29,13 +29,16 @@ window.addEventListener('load', () => {
   const mainContent = document.querySelector('.main-content');
   const menuButton = document.querySelector('.menu-btn');
 
-  sidebar.style.left = '0'; // Sidebar expanded
-  mainContent.style.marginLeft = '250px'; // Adjust main content
+  // Ensure sidebar is expanded by default
+  sidebar.style.left = '0';
+  mainContent.style.marginLeft = '250px';
+  mainContent.style.width = 'calc(100% - 250px)'; // Prevent content shift
   menuButton.style.color = '#fff'; // Set menu button color to white
 
   // Show Profile page by default
   showPage('profile');
 });
+
 
 
 
