@@ -804,14 +804,7 @@ header h1 {
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
-.option {
-  background: rgba(128, 128, 128, 0.493);
-  border-radius: 10px;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-}
+
 .pay-options .option:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.6);
