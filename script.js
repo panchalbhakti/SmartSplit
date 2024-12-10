@@ -555,12 +555,6 @@ function formatExpiryMonth(input) {
   input.value = value;
 }
 
-document.getElementById("paymentForm").addEventListener("submit", function(event) {
-  event.preventDefault(); 
-  alert("Payment Successful! Thank you for using Smart Split.");
-});
-
-
 document.querySelector('.menu-btn').addEventListener('click', function() {
   const sidebar = document.querySelector('.sidebar');
   sidebar.classList.toggle('active');
@@ -672,10 +666,6 @@ document.getElementById('split-button').addEventListener('click', () => {
   localStorage.setItem('splitHistory', JSON.stringify(splitHistory));
 });
 
-// document.getElementById("paymentForm").addEventListener("submit", function (event) {
-//   event.preventDefault(); // Prevent default form submission
 function pay(){
-  
-      // Show success alert
       alert("Payment Successful! Thank you for using Smart Split.");
 }
