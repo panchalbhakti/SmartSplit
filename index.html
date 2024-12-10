@@ -102,7 +102,7 @@
     <!-- Split Expenses Page -->
     <div id="splitexpenses" class="page split-expenses-container" style="display: none;">
       <div class="split-expenses-wrapper">
-        <h1>Expense Splitter 💸</h1>
+        <h2 class="section-title-2">Expense Splitter 💸</h1>
         <div class="split-method-selector">
           <h3>Choose Split Method</h3>
           <label><input type="radio" name="splitMethod" value="standard" checked> Standard Split</label>
@@ -165,33 +165,35 @@
             </div>
         </div>
         <form class="payform" id="paymentForm">
+          <div class="ip-grp">
+            <label for="name">Payer Name : </label>
+            <input type="text" id="name" placeholder="Enter Payer Name" required>
+          </div>
+          <div class="ip-grp">
+            <label for="amount">Amount :</label>
+            <input type="text" id="amount" placeholder="Enter Amount" required>
+          </div>          
+          <div class="ip-grp">
+            <label for="cardno">Card Number : </label>
+            <input type="text" id="cardno" placeholder="Enter Card Number" required maxlength="19"
+              pattern="(\d{4} \d{4} \d{4} \d{4})" title="Card number should be in the format 0000 0000 0000 0000"
+              oninput="formatCardNumber(this)">
+          </div>
+          <div class="ip-grp-grp">
             <div class="ip-grp">
-                <label for="name">Payer Name : </label>
-                <input type="text" id="name" placeholder="Enter Payer Name" required>
+              <label for="expiry">Expiry Month : </label>
+              <input type="text" id="expiry" placeholder="MM / YY" required pattern="(\d{2} '\' \d{2})"
+                title="Expiry month should be in the format MM / YY" oninput="formatExpiryMonth(this)">
             </div>
             <div class="ip-grp">
-                <label for="cardno">Card Number : </label>
-                <input type="text" id="cardno" placeholder="Enter Card Number" required maxlength="19"
-                pattern="(\d{4} \d{4} \d{4} \d{4})" title="Card number should be in the format 0000 0000 0000 0000"
-                oninput="formatCardNumber(this)">
-              <!-- Calls a JavaScript function named formatCardNumber every time the user types in the field, passing the current input element (this) as a parameter. -->
+              <label for="cvv">CVV : </label>
+              <input type="password" id="cvv" placeholder="Enter a valid 3-digit CVV" maxlength="3" pattern="\d{3}" required>
             </div>
-            <div class="ip-grp-grp">
-                <div class="ip-grp">
-                    <label for="expiry">Expiry Month : </label>
-                    <input type="text" id="expiry" placeholder="MM / YY" required pattern="(\d{2} '\' \d{2})"
-                    title="Expiry month should be in the format MM / YY" oninput="formatExpiryMonth(this)">
-                </div>
-                <!-- Calls the JavaScript function formatExpiryMonth whenever the input changes, passing the field as an argument. -->
-                <div class="ip-grp">
-                    <label for="cvv">CVV : </label>
-                    <input type="password" id="cvv"  placeholder="Enter a valid 3-digit CVV" maxlength="3" pattern="\d{3}" required>
-                </div>
-                <input type="checkbox" required > I agree to the terms and conditions
-                <br>
-                <button type="submit" onclick="pay()">Proceed to Pay</button>
-            </div>
-        </form>
+            <input type="checkbox" required> I agree to the terms and conditions
+            <br>
+            <button type="submit" onclick="pay()">Proceed to Pay</button>
+          </div>
+        </form>        
     </div>
     </div>
     

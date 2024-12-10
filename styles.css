@@ -20,10 +20,10 @@ body {
   left: -250px;
   width: 250px;
   height: 100vh;
-  background: #1d3557; /* Solid color */
+  background: #1d3557;
   color: #fff;
   overflow-y: auto;
-  transition: left 0.3s ease, background 0.6s ease;
+  transition: left 0.5s ease;
   z-index: 2;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -46,6 +46,14 @@ body {
 
 }
 
+.sidebar.open {
+  left: 0;
+}
+
+.main-content.sidebar-open {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
 #circle {
   display: flex;
   justify-content: space-between;
@@ -140,10 +148,9 @@ body {
 
 /* Main Content Styling */
 .main-content {
-  margin-left: 250px;
-  padding: 20px;
-  width: calc(100% - 250px);
-  transition: margin-left 0.3s ease;
+  margin-left: 0;
+  width: 100%;
+  transition: margin-left 0.5s ease, width 0.5s ease;
 }
 
 header {
