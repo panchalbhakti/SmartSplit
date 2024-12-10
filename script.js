@@ -575,12 +575,13 @@ function sendSMSMessage(name, amount, phoneNumber) {
   window.location.href = smsUrl;
 }
 
-function openPaymentPage(friendName, amountOwed) {
-  showPage('payment'); // Switch to the payment page
+function openPaymentPage(friendName, amount) {
+  // Navigate to the Payment page
+  showPage('payment');
 
   // Autofill the Payer Name and Amount fields
   document.getElementById('name').value = friendName;
-  document.getElementById('amount').value = `₹${amountOwed}`;
+  document.getElementById('amount').value = amount.toFixed(2);
 }
 
 
