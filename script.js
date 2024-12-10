@@ -458,10 +458,15 @@ if (!clearResultButton) {
     splitBreakdown.innerHTML = ''; // Clear previous results
   
     const amountPerPerson = (totalAmount / friends.length).toFixed(2);
+    const negativeBalances = []; // Track people with negative budgets
   
     friends.forEach((friend) => {
       const breakdownItem = document.createElement('div');
       breakdownItem.classList.add('split-breakdown-item');
+  
+      const remainingBudget = friend.budget
+        ? (friend.budget - parseFloat(amountPerPerson)).toFixed(2)
+        : null;
   
       breakdownItem.innerHTML = `
         <div>
@@ -469,7 +474,8 @@ if (!clearResultButton) {
           ${splitMethod === 'budget-based' && friend.budget !== null 
             ? `<small>Budget: ₹${friend.budget.toFixed(2)}</small><br>` 
             : ''}
-          <small>Owes: ₹${amountPerPerson}</small>
+          <small>Owes: ₹${amountPerPerson}</small><br>
+          ${remainingBudget !== null ? `<small>Remaining Budget: ₹${remainingBudget}</small>` : ''}
         </div>
         <div class="friend-actions">
           <button onclick="sendWhatsAppMessage('${friend.name}', '${amountPerPerson}', '${friend.contact}')">WhatsApp</button>
@@ -477,9 +483,31 @@ if (!clearResultButton) {
           <button onclick="openPaymentPage('${friend.name}', ${amountPerPerson})">Pay</button>
         </div>
       `;
+  
+      if (remainingBudget && parseFloat(remainingBudget) < 0) {
+        negativeBalances.push({
+          name: friend.name,
+          remaining: parseFloat(remainingBudget),
+        });
+      }
+  
       splitBreakdown.appendChild(breakdownItem);
     });
+  
+    // Display people with negative budgets
+    if (negativeBalances.length > 0) {
+      const negativeSection = document.createElement('div');
+      negativeSection.style.marginTop = '20px';
+      negativeSection.innerHTML = '<strong>People with Negative Budgets:</strong>';
+      negativeBalances.forEach((balance) => {
+        const negativeItem = document.createElement('div');
+        negativeItem.innerHTML = `${balance.name}: ₹${balance.remaining.toFixed(2)}`;
+        negativeSection.appendChild(negativeItem);
+      });
+      splitBreakdown.appendChild(negativeSection);
+    }
   });
+  
   
   
   
