@@ -498,7 +498,7 @@ button:focus {
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 }
 
 #clear-selection-btn:hover {
@@ -516,7 +516,7 @@ button:focus {
 }
 
 #clear-split-result-btn:hover {
-  background-color: #c0392b;
+  background-color: #c33c2d;
 }
   
 
