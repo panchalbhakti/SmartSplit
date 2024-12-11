@@ -213,9 +213,9 @@ button:focus {
 
 /* Profile Page */
 .profile-container {
-  display: flex;
+   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start; 
   margin: 40px auto;
   padding: 30px;
   max-width: 700px;
