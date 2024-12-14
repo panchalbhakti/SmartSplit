@@ -633,7 +633,7 @@ header h1 {
   margin-bottom: 15px;
   font-size: 1.5rem;
   color: #2d4052;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .friends-list-container {
   flex: 1;
